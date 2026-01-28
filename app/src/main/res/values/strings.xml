@@ -1,3 +1,21 @@
 <resources>
+    <!--  Text  -->
     <string name="app_name">Assignment3</string>
+    <string name="welcome">Welcome !!</string>
+    <string name="createUser">Create User Info</string>
+    <string name="fullName">Name :</string>
+    <string name="email">Email :</string>
+    <string name="role">Role :</string>
+    <string name="profile">Profile</string>
+    <!--  Roles  -->
+    <string name="student">Student</string>
+    <string name="employee">Employee</string>
+    <string name="other">Other</string>
+    <!--  Buttons  -->
+    <string name="startButton">Start</string>
+    <string name="nextButton">Next</string>
+    <string name="updateButton">Update</string>
+    <!-- Text Input Layout  -->
+    <string name="nameHint">Enter Name</string>
+    <string name="emailHint">Enter Email</string>
 </resources>
