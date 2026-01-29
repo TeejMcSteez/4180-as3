@@ -52,7 +52,6 @@ class SecondActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid name or email", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            Log.d("IntentNameValue", "Putting $name and $email")
             intent.putExtra("name", name)
                 .putExtra("email", email)
 

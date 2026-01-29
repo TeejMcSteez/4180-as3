@@ -18,8 +18,22 @@ class ThirdActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_third)
 
-        if (intent != null && intent.extras != null && intent.hasExtra("name")) {
-            // TODO
+        val nameVal = findViewById<TextView>(R.id.nameValue)
+        val emailVal = findViewById<TextView>(R.id.emailValue)
+        val roleVal = findViewById<TextView>(R.id.roleValue)
+
+        if (intent != null && intent.extras != null) {
+            val name = intent.getStringExtra("name")
+            val email = intent.getStringExtra("email")
+            val role = intent.getStringExtra("role")
+
+            nameVal.text = name
+            emailVal.text = email
+            roleVal.text = role
+
+            intent.putExtra("name", name)
+                .putExtra("email", email)
+                .putExtra("role", role)
         } else {
             Toast.makeText(this, "Could not get values from passed intent", Toast.LENGTH_SHORT).show()
         }
