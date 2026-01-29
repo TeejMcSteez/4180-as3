@@ -35,15 +35,18 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="@string/fullName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -52,57 +55,62 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="16dp"
         android:text="@string/role"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="365dp"
+        android:id="@+id/textInputLayout"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameInput"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:hint="@string/nameHint" />
+            android:layout_height="match_parent"
+            android:hint="@string/nameHint"
+            android:inputType="text|textNoSuggestions" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="367dp"
+        android:id="@+id/textInputLayout2"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailInput"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:hint="@string/emailHint" />
+            android:layout_height="match_parent"
+            android:hint="@string/emailHint"
+            android:inputType="text|textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
+        android:id="@+id/roleGroup"
         android:layout_width="150dp"
         android:layout_height="145dp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/studentRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/student" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/employeeRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/employee" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/otherRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/other" />
