@@ -94,6 +94,7 @@
         android:id="@+id/roleGroup"
         android:layout_width="150dp"
         android:layout_height="145dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6">
 

@@ -20,6 +20,22 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
+        val nv = findViewById<TextInputLayout>(R.id.nameInputLayout)
+        val ev = findViewById<TextInputLayout>(R.id.emailInputLayout)
+        if (intent != null && intent.extras != null) {
+            val name = intent.getStringExtra("name")
+            val email = intent.getStringExtra("email")
+            val role = intent.getStringExtra("role")
+
+            nv.editText?.setText(name)
+            ev.editText?.setText(email)
+            when (role) {
+                "Student" -> findViewById<RadioButton>(R.id.studentRadioButton).isChecked = true
+                "Employee" -> findViewById<RadioButton>(R.id.employeeRadioButton).isChecked = true
+                "Other" -> findViewById<RadioButton>(R.id.otherRadioButton).isChecked = true
+                else -> Log.d("IntentNameValue", "role is not valid")
+            }
+        }
 
         // Role Selection
         findViewById<RadioButton>(R.id.studentRadioButton).setOnClickListener {
@@ -34,8 +50,7 @@ class SecondActivity : AppCompatActivity() {
             intent.putExtra("role", "Other")
             intent.getStringExtra("role")?.let { msg -> Log.d("IntentNameValue", msg) }
         }
-        val nv = findViewById<TextInputLayout>(R.id.nameInputLayout)
-        val ev = findViewById<TextInputLayout>(R.id.emailInputLayout)
+
         // Submit Button
         findViewById<Button>(R.id.button2).setOnClickListener {
             if (!intent.hasExtra("role")) {
@@ -58,8 +73,12 @@ class SecondActivity : AppCompatActivity() {
             Log.d("IntentNameValue", intent.getStringExtra("name").toString())
             Log.d("IntentNameValue", intent.getStringExtra("email").toString())
 
-            val intent = Intent(this, ThirdActivity::class.java)
-            startActivity(intent)
+            val nextIntent = Intent(this, ThirdActivity::class.java)
+            nextIntent.putExtra("name", name)
+                .putExtra("email", email)
+                .putExtra("role", intent.getStringExtra("role"))
+            startActivity(nextIntent)
+            finish()
         }
 
     }

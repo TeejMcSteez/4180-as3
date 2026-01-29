@@ -21,7 +21,6 @@ class ThirdActivity : AppCompatActivity() {
         val nameVal = findViewById<TextView>(R.id.nameValue)
         val emailVal = findViewById<TextView>(R.id.emailValue)
         val roleVal = findViewById<TextView>(R.id.roleValue)
-
         if (intent != null && intent.extras != null) {
             val name = intent.getStringExtra("name")
             val email = intent.getStringExtra("email")
@@ -39,8 +38,11 @@ class ThirdActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button3).setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
+            val nextIntent = Intent(this, OptionalActivity::class.java)
+            nextIntent.putExtra("name", intent.getStringExtra("name").toString())
+                .putExtra("email", intent.getStringExtra("email").toString())
+                .putExtra("role", intent.getStringExtra("role").toString())
+            startActivity(nextIntent)
         }
     }
 }
